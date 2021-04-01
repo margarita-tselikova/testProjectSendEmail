@@ -15,5 +15,3 @@ class TestEmailPage:
         inbox.go_to_email_body_and_specify_body()
         inbox.click_send_button()
         inbox.success_popup_appears()
-
-

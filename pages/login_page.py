@@ -31,9 +31,3 @@ class LoginPage(BasePageElement):
         #TODO: fix assertion
         time.sleep(3)
         assert self.get_current_url().startswith(test_constants.inbox_page)
-
-
-
-
-
-

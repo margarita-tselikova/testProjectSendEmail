@@ -16,6 +16,8 @@ class MailPage(BasePageElement):
         self.input_data(to_field, test_constants.test_email)
 
     def go_to_email_body_and_specify_body(self):
+        to_field = self.find_present_element_by_xpath(MailPageLocators.TO_FIELD)
+        to_field.click()
         actions = ActionChains(self.browser)
         actions.send_keys(Keys.TAB * 3)
         actions.send_keys('test ' + str(datetime.now()))
@@ -25,17 +27,6 @@ class MailPage(BasePageElement):
         send_button = self.find_clickable_element_by_xpath(MailPageLocators.SEND_BUTTON)
         send_button.click()
 
-    # def send_email(self):
-    #     write_email_button = self.find_clickable_element_by_xpath(MailPageLocators.WRITE_EMAIL_BUTTON)
-    #     write_email_button.click()
-    #     to_field = self.find_present_element_by_xpath(MailPageLocators.TO_FIELD)
-    #     self.input_data(to_field, test_constants.test_email)
-    #     actions = ActionChains(self.browser)
-    #     actions.send_keys(Keys.TAB * 3)
-    #     actions.send_keys('test ' + str(datetime.now()))
-    #     actions.perform()
-    #     send_button = self.find_clickable_element_by_xpath(MailPageLocators.SEND_BUTTON)
-    #     send_button.click()
 
     def success_popup_appears(self):
         assert self.check_exists_by_xpath(MailPageLocators.EMAIL_HAS_BEEN_SENT_POPUP)
